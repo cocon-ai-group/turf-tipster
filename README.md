@@ -59,7 +59,7 @@ $ python3 prefigure.py -e "中山|芝|1800|晴" -r "サトノスティング|横
 
 ## License
 
-[Gnu AGPL 3.0](COPYING)
+[Gnu AGPL 3.0](LICENSE)
 
 [1]: https://jra-van.jp/
 [2]: https://cocon-corporation.com/cocontoco/horseraceprediction_ai/
