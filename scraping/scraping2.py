@@ -88,6 +88,12 @@ with open('race_database2.csv', 'w') as csvfile:
 			# URLから読み込む
 			html = str(response.read())
 			soup = BeautifulSoup(html, 'html.parser')
+			# 特別登録
+			meta = soup.find('meta', attrs={'name':'keywords'})
+			if meta:
+				keywords = eval('b"{}"'.format(meta['content'])).decode('UTF8')
+				if keywords.find('特別登録') >= 0:
+					continue
 			# タイトル
 			race_title = eval('b"{}"'.format(soup.title.string)).decode('UTF8')
 			race_title = race_title.replace(u' ', '').replace(u'【', '|').replace(u'】', '')
@@ -103,21 +109,31 @@ with open('race_database2.csv', 'w') as csvfile:
 				l = ext[-4:] # 距離
 				br = hg[0:1] # ダ 芝 障
 				tttl = soup.find('h1', 'raceTitle')
-				t = tttl.parent.find('li').string # 天気
-				tr = eval('b"{}"'.format(t)).decode('UTF8')
+				t = tttl.parent.find('li') # 天気
+				if t is None:
+					tr = '晴'
+				elif hasattr(t,'string'):
+					t = t.string
+					tr = eval('b"{}"'.format(t)).decode('UTF8')
+				elif len(t) >= 2 and hasattr(t[0],'string'):
+					t = t[0].string
+					tr = eval('b"{}"'.format(t)).decode('UTF8')
+				else:
+					tr = '晴'
 				exstr = br+'|'+l+'|'+tr
 			# オッズ
 			paystr = ''
 			pays = soup.find('div', 'haraimodoshi')
-			pays_all = pays.find_all('td')
-			paystr += get_odds_str(pays_all[2],1) + ':' # 単勝
-			paystr += '_'.join(get_odds_str(pays_all[8],3)) + ':' # 複勝
-			paystr += get_odds_str(pays_all[14],1) + ':' # 枠連
-			paystr += get_odds_str(pays_all[20],1) + ':' # 馬連
-			paystr += '_'.join(get_odds_str(pays_all[11],3)) + ':' # ワイド
-			paystr += get_odds_str(pays_all[5],1) + ':' # 馬単
-			paystr += get_odds_str(pays_all[17],1) + ':' # 三連複
-			paystr += get_odds_str(pays_all[23],1) # 三連単
+			if pays is not None:
+				pays_all = pays.find_all('td')
+				paystr += get_odds_str(pays_all[2],1) + ':' # 単勝
+				paystr += '_'.join(get_odds_str(pays_all[8],3)) + ':' # 複勝
+				paystr += get_odds_str(pays_all[14],1) + ':' # 枠連
+				paystr += get_odds_str(pays_all[20],1) + ':' # 馬連
+				paystr += '_'.join(get_odds_str(pays_all[11],3)) + ':' # ワイド
+				paystr += get_odds_str(pays_all[5],1) + ':' # 馬単
+				paystr += get_odds_str(pays_all[17],1) + ':' # 三連複
+				paystr += get_odds_str(pays_all[23],1) # 三連単
 			where = ''
 			w_al = re.findall(r'(小倉|阪神|京都|中京|中山|東京|新潟|福島|函館|札幌)', race_title, re.DOTALL)
 			if len(w_al) > 0:
