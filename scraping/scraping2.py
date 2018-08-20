@@ -157,6 +157,12 @@ with open('race_database2.csv', 'w') as csvfile:
 								jk = eval('b"{}"'.format(str(td[6].find('a').string))).decode('UTF8')
 								hr = hr.replace(u'(地)', '').replace(u'[地]', '').replace(u'(外)', '').replace(u'[外]', '')
 								jk = jk.replace(u'▲', '').replace(u'☆', '').replace(u'△', '')
+								if jk == 'Mデムー':
+									jk = 'Ｍ．デム'
+								if jk == 'Cデムー':
+									jk = 'Ｃ．デム'
+								if jk == 'Cルメー':
+									jk = 'ルメール'
 								if jk == 'Mデムーロ':
 									jk = 'Ｍ．デム'
 								if jk == 'Cデムーロ':
