@@ -152,7 +152,7 @@ with open('race_database2.csv', 'w') as csvfile:
 						bef_r = '1'
 						for row in rows:
 							td = row.find_all('td')
-							if len(td) > 15:
+							if len(td) >= 15:
 								hr = eval('b"{}"'.format(str(td[3].find('a').string))).decode('UTF8')
 								jk = eval('b"{}"'.format(str(td[6].find('a').string))).decode('UTF8')
 								hr = hr.replace(u'(地)', '').replace(u'[地]', '').replace(u'(外)', '').replace(u'[外]', '')
