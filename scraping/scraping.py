@@ -131,6 +131,8 @@ with open('race_database.csv', 'w') as csvfile:
 				br = hg[0:1] # ダ 芝 障
 				t = ext[1][22:30] # 天気
 				tr = eval('b"{}"'.format(t)).decode('EUC_JP')
+				if tr == '小':
+					tr = '小雨'
 				exstr = br+'|'+l+'|'+tr # 馬場距離天気
 			# オッズ
 			paystr = ''
