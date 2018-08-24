@@ -21,7 +21,7 @@ all_races_u = []
 all_races_h = {}
 
 for i in range(len(all_races_s)):
-	h = all_races_s[i][0]+','.join(all_races_s[i][1][1:])
+	h = all_races_s[i][0]+','.join(all_races_s[i][1][1])
 	if not h in all_races_h:
 		all_races_h[h] = 1
 		all_races_u.append(all_races_s[i][1])
