@@ -163,6 +163,74 @@ with open('race_database2.csv', 'w') as csvfile:
 									jk = 'Ｃ．デム'
 								if jk == 'Cルメー':
 									jk = 'ルメール'
+								if jk == 'Vシュミ':
+									jk = 'シュミノ'
+								if jk == 'Hボウマ':
+									jk = 'ボウマン'
+								if jk == 'Gブノワ':
+									jk = 'ブノワ'
+								if jk == 'Aシュタ':
+									jk = 'シュタル'
+								if jk == 'Dバルジ':
+									jk = 'バルジュ'
+								if jk == 'Dホワイ':
+									jk = 'ホワイト'
+								if jk == 'Kティー':
+									jk = 'ティータ'
+								if jk == 'Aクラス':
+									jk = 'クラスト'
+								if jk == 'Aアッゼ':
+									jk = 'アッゼニ'
+								if jk == 'Bプレブ':
+									jk = 'プレブル'
+								if jk == 'Cウィリ':
+									jk = 'ウィリア'
+								if jk == 'Cパリッ':
+									jk = 'パリッシ'
+								if jk == 'Dポルク':
+									jk = 'ポルク'
+								if jk == 'Dマクド':
+									jk = 'マクドノ'
+								if jk == 'Eウィル':
+									jk = 'ウィルソ'
+								if jk == 'Eダシル':
+									jk = 'ダシルヴ'
+								if jk == 'Fミナリ':
+									jk = 'ミナリク'
+								if jk == 'Fヴェロ':
+									jk = 'ヴェロン'
+								if jk == 'Hターナ':
+									jk = 'ターナー'
+								if jk == 'Iファー':
+									jk = 'ファーガ'
+								if jk == 'Jモレイ':
+									jk = 'モレイラ'
+								if jk == 'Jスペン':
+									jk = 'スペンサ'
+								if jk == 'Kマカヴ':
+									jk = 'マカヴォ'
+								if jk == 'Kマリヨ':
+									jk = 'マリヨン'
+								if jk == 'Lオール':
+									jk = 'オールプ'
+								if jk == 'Lコント':
+									jk = 'コントレ'
+								if jk == 'Mデュプ':
+									jk = 'デュプレ'
+								if jk == 'Mバルザ':
+									jk = 'バルザロ'
+								if jk == 'Sパスキ':
+									jk = 'パスキエ'
+								if jk == 'Sフォー':
+									jk = 'フォーリ'
+								if jk == 'Tベリー':
+									jk = 'ベリー'
+								if jk == 'Tジャル':
+									jk = 'ジャルネ'
+								if jk == 'Tクウィ':
+									jk = 'クウィリ'
+								if jk == 'Zパート':
+									jk = 'パートン'
 								if jk == 'Mデムーロ':
 									jk = 'Ｍ．デム'
 								if jk == 'Cデムーロ':
