@@ -63,12 +63,12 @@ class Turf_Tipster_NN(chainer.Chain):
 		# ゲート分のデータを作る
 		for i in range(num_gates):
 			l, r, m1, m2, m3, m4 = grid[i]
-			l_h1[i] = l
-			r_h1[i] = r
-			t_m1[i] = m1
-			t_m2[i] = m2
-			t_m3[i] = m3
-			t_m4[i] = m4
+			l_h1[i] = l[0]
+			r_h1[i] = r[0]
+			t_m1[i] = m1[0]
+			t_m2[i] = m2[0]
+			t_m3[i] = m3[0]
+			t_m4[i] = m4[0]
 		# 馬モデルを計算
 		self.l2.set_state(chainer.Variable(l_vc), chainer.Variable(l_vh))
 		l_l1 = F.tanh(self.le(l_h1))
@@ -103,4 +103,3 @@ class Turf_Tipster_NN(chainer.Chain):
 		self.l2.reset_state()
 		self.vc.copydata(chainer.Variable(cp.zeros(self.vc.data.shape, dtype=cp.float32)))
 		self.vh.copydata(chainer.Variable(cp.zeros(self.vh.data.shape, dtype=cp.float32)))
-
