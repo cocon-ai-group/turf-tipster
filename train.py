@@ -28,7 +28,7 @@ def main():
 						help='Test file')
 	parser.add_argument('--model', '-m', default='simple',
 						help='Use model type (simple / rnn)')
-	parser.add_argument('--epoch', '-e', type=int, default=50,
+	parser.add_argument('--epoch', '-e', type=int, default=5,
 						help='Number of sweeps over the dataset to train')
 	parser.add_argument('--gpu', '-g', type=int, default=-1,
 						help='GPU ID (negative value indicates CPU)')
