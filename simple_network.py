@@ -46,12 +46,12 @@ class Turf_Tipster_NN(chainer.Chain):
 		# ゲート分のデータを作る
 		for i in range(num_gates):
 			l, r, m1, m2, m3, m4 = grid[i]
-			l_h1[i] = l
-			r_h1[i] = r
-			t_m1[i] = m1
-			t_m2[i] = m2
-			t_m3[i] = m3
-			t_m4[i] = m4
+			l_h1[i] = l[0]
+			r_h1[i] = r[0]
+			t_m1[i] = m1[0]
+			t_m2[i] = m2[0]
+			t_m3[i] = m3[0]
+			t_m4[i] = m4[0]
 		# レースモデルを計算
 		l_h1 = self.le(l_h1)
 		r_h1 = self.re(r_h1)
@@ -64,4 +64,3 @@ class Turf_Tipster_NN(chainer.Chain):
 		j_h3 = F.dropout(F.sigmoid(self.j2(j_h2)))
 		j_h4 = F.sigmoid(self.j3(j_h3))
 		return F.sigmoid(j_h4)
-
