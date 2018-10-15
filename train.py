@@ -78,7 +78,7 @@ def main():
 				for e in range(1, len(race)):
 					entry = race[e]
 					result = entry.split('|')
-					if len(result) == 3:
+					if len(result) >= 3:
 						if not result[1] in all_horses:
 							all_horses[result[1]] = 1
 						else:
@@ -207,7 +207,7 @@ def main():
 			for e in range(1, len(race)):
 				entry = race[e]
 				result = entry.split('|')
-				if len(result) == 3:
+				if len(result) >= 3:
 					r_horse = len(horse_names)-2
 					r_jockey = len(jockey_names)-1
 					if result[1] in all_horses_i:
@@ -259,20 +259,24 @@ def main():
 		if v[0] == 0:
 			tansho = ext[0][0] # 単勝
 		fukusho1 = 0
-		if v[0] < 3:
+		if v[0] == 0:
 			fukusho1 = ext[0][1] # 複勝（1枚買ったとき）
+		if v[0] == 1:
+			fukusho1 = ext[0][2] # 複勝（1枚買ったとき）
+		if v[0] == 2:
+			fukusho1 = ext[0][3] # 複勝（1枚買ったとき）
 		fukusho2 = 0
-		if v[0] < 3:
+		if v[0] == 0 or v[1] == 0:
 			fukusho2 += ext[0][1] # 複勝（2枚買ったとき）
-		if v[1] < 3:
+		if v[0] == 1 or v[1] == 1:
 			fukusho2 += ext[0][2] # 複勝（2枚買ったとき）
 		fukusho2 = fukusho2 / 2
 		fukusho3 = 0
-		if v[0] < 3:
+		if v[0] == 0 or v[1] == 0 or v[2] == 0:
 			fukusho3 += ext[0][1] # 複勝（3枚買ったとき）
-		if v[1] < 3:
+		if v[0] == 1 or v[1] == 1 or v[2] == 1:
 			fukusho3 += ext[0][2] # 複勝（3枚買ったとき）
-		if v[2] < 3:
+		if v[0] == 2 or v[1] == 2 or v[2] == 2:
 			fukusho3 += ext[0][3] # 複勝（3枚買ったとき）
 		fukusho3 = fukusho3 / 3
 		umaren = 0
